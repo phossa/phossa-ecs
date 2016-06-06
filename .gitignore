@@ -30,8 +30,4 @@ phpunit.phar
 ######################
 
 # enviroment
-.env
-
-# config
-config/
-!config/.htaccess
+/.env

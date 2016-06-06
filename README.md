@@ -18,11 +18,11 @@ It requires PHP 5.4 and supports PHP 7.0+, HHVM. It is compliant with
 Features
 --
 
-- Uses `composer` as libraries and packages managment tool.
+- Uses `composer` to manage everything including application and libraries.
 
 - Seperation of configurations from other codes.
 
-- Seperation of local (server-wise) and shareable (cloud-wise) stuff.
+- Seperation of local (host-wise) and shareable (cloud-wise) stuff.
 
 - Seperation of application development and system administration.
 
