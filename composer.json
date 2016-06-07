@@ -1,22 +1,31 @@
 {
   "name" : "phossa/phossa-ecs",
-  "type" : "framework",
+  "type" : "project",
   "homepage" : "https://github.com/phossa/phossa-ecs",
-  "description" : "A large scale PHP application framework",
+  "description" : "A large scale PHP application skeleton using Phossa framework",
   "authors" : [ {
     "name" : "Hong Zhang",
     "homepage" : "https://github.com/phossa"
   } ],
   "license" : "MIT",
-  "keywords" : [ "phossa", "ecs", "application", "php" ],
+  "keywords" : [ "phossa", "application", "php" ],
   "require" : {
     "php" : ">=5.4.0",
-    "fxp/composer-asset-plugin" : "~1.1",
-    "phossa/phossa-config" : "~1.0.4",
-    "bower-asset/jquery": "1.11.*"
+    "fxp/composer-asset-plugin" : "^1.1",
+    "phossa/phossa" : "dev-master",
+    "bower-asset/jquery": "^1.11.0"
   },
-  "autoload" : {
-    "psr-0" : { "Phossa\\Ecs\\": "vendor/phossa/phossa-ecs" }
+  "config" : {
+    "bin-dir" : "system/script",
+    "platform" : {
+      "php" : "5.4.0"
+    }
+  },
+  "scripts" : {
+    "post-install-cmd": [
+    ],
+    "post-update-cmd": [
+    ]
   },
   "archive" : {
     "exclude" : [ "!vendor", "tests", "*phpunit.xml", "composer.lock" ]
