@@ -13,7 +13,9 @@
  */
 /*# declare(strict_types=1); */
 
+use Phossa\Config\Config;
 use Phossa\Ecs\Message\Message;
+use Phossa\Config\Env\Environment;
 use Phossa\Shared\Message\MessageAbstract;
 use Phossa\Shared\Message\Loader\LanguageLoader;
 
@@ -23,18 +25,18 @@ use Phossa\Shared\Message\Loader\LanguageLoader;
 require_once  '../vendor/autoload.php';
 
 /*
- * set app root
+ * set root directory
  */
 putenv('PHOSSA_ROOT=' . dirname(__DIR__));
 
 /*
- * load environment
+ * load server/host specific environment variables
  */
 $envFile = '../../.env';
 if (!is_file($envFile)) {
     die(Message::get(Message::ENVFILE_NOT_FOUND, $envFile));
 } else {
-    (new Phossa\Config\Env\Environment())->load($envFile);
+    (new Environment())->load($envFile);
 }
 
 /*
@@ -45,9 +47,6 @@ if ('en_US.UTF-8' != getenv('PHOSSA_LANG')) {
 }
 
 /*
- * load app configs
+ * load configs
  */
-$config = new Phossa\Config\Config(
-    getenv('PHOSSA_CONFIG'),    // loaded from .env file
-    getenv('PHOSSA_ENV')        // loaded from .env file
-);
+$config = new Config(getenv('PHOSSA_CONFIG'), getenv('PHOSSA_ENV'));
