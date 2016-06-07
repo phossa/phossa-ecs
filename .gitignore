@@ -15,6 +15,9 @@ Thumbs.db
 # Mac DS_Store Files
 .DS_Store
 
+# git stuff
+.git
+
 # composer files
 composer.phar
 composer.lock
