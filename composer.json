@@ -6,8 +6,7 @@
   },
   "require" : {
     "php" : ">=5.4.0",
-    "phossa/phossa-shared" : "1.*",
-    "phossa/phossa-config" : "1.*"
+    "phossa/phossa-config" : "dev-master"
   },
   "license" : "MIT",
   "keywords" : [ "phossa", "ecs", "application", "php" ],

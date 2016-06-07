@@ -1,11 +1,10 @@
 <?php
 
 // autoloader
-$cloudDir = dirname(__DIR__);
-require_once  $cloudDir . '/vendor/autoloader.php';
+require_once  '../vendor/autoload.php';
 
-// load environment
-(new Phossa\Config\Env\Environment())->load(dirname($cloudDir) . '/.env');
+// base on the servername, may load different .env here
+(new Phossa\Config\Env\Environment())->load('../../.env');
 
 // load configs
 $config = new Phossa\Config\Config(
