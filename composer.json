@@ -4,9 +4,12 @@
   "config" : {
     "vendor-dir" : "cloud/vendor"
   },
+  "autoload": {
+    "psr-0": { "Phossa\\Ecs\\": "cloud/vendor/phossa/phossa-ecs" }
+  },
   "require" : {
     "php" : ">=5.4.0",
-    "phossa/phossa-config" : "~1.0.3"
+    "phossa/phossa-config" : "~1.0.4"
   },
   "license" : "MIT",
   "keywords" : [ "phossa", "ecs", "application", "php" ],

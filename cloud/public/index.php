@@ -1,13 +1,20 @@
 <?php
 
-// autoloader
-require_once  '../vendor/autoload.php';
+/**
+ * Phossa Project
+ *
+ * PHP version 5.4
+ *
+ * @category  Library
+ * @package   Phossa\Ecs
+ * @author    Hong Zhang <phossa@126.com>
+ * @copyright 2016 phossa.com
+ * @license   http://mit-license.org/ MIT License
+ * @link      http://www.phossa.com/
+ */
+/*# declare(strict_types=1); */
 
-// base on the servername, may load different .env here
-(new Phossa\Config\Env\Environment())->load('../../.env');
-
-// load configs
-$config = new Phossa\Config\Config(
-    getenv('PHOSSA_CONFIG'),    // loaded from .env file
-    getenv('PHOSSA_ENV')        // loaded from .env file
-);
+/*
+ * bootstrap file
+ */
+require_once '../system/bootstrap.php';
