@@ -23,6 +23,11 @@ use Phossa\Shared\Message\Loader\LanguageLoader;
 require_once  '../vendor/autoload.php';
 
 /*
+ * set app root
+ */
+putenv('PHOSSA_ROOT=' . dirname(__DIR__));
+
+/*
  * load environment
  */
 $envFile = '../../.env';
