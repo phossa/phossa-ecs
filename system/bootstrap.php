@@ -23,11 +23,6 @@ use Phossa\Shared\Message\Loader\LanguageLoader;
 require_once  '../vendor/autoload.php';
 
 /*
- * prepare dev message language
- */
-MessageAbstract::setLoader(new LanguageLoader('zh_CN.UTF-8'));
-
-/*
  * load environment
  */
 $envFile = '../../.env';
@@ -38,7 +33,14 @@ if (!is_file($envFile)) {
 }
 
 /*
- * load configs
+ * set default language for dev error message
+ */
+if ('en_US.UTF-8' != getenv('PHOSSA_LANG')) {
+    MessageAbstract::setLoader(new LanguageLoader(getenv('PHOSSA_LANG')));
+}
+
+/*
+ * load app configs
  */
 $config = new Phossa\Config\Config(
     getenv('PHOSSA_CONFIG'),    // loaded from .env file

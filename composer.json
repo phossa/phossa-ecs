@@ -1,25 +1,30 @@
 {
   "name" : "phossa/phossa-ecs",
-  "description" : "A large scale (ECS) application skeleton for Phossa project",
-  "config" : {
-    "vendor-dir" : "cloud/vendor"
-  },
-  "autoload": {
-    "psr-0": { "Phossa\\Ecs\\": "cloud/vendor/phossa/phossa-ecs" }
-  },
-  "require" : {
-    "php" : ">=5.4.0",
-    "phossa/phossa-config" : "~1.0.4"
-  },
-  "license" : "MIT",
-  "keywords" : [ "phossa", "ecs", "application", "php" ],
-  "archive" : {
-    "exclude" : [ "!vendor", "tests", "*phpunit.xml", "composer.lock" ]
-  },
   "type" : "framework",
   "homepage" : "https://github.com/phossa/phossa-ecs",
+  "description" : "A large scale PHP application framework",
   "authors" : [ {
     "name" : "Hong Zhang",
     "homepage" : "https://github.com/phossa"
-  } ]
+  } ],
+  "license" : "MIT",
+  "keywords" : [ "phossa", "ecs", "application", "php" ],
+  "require" : {
+    "php" : ">=5.4.0",
+    "fxp/composer-asset-plugin" : "~1.1",
+    "phossa/phossa-config" : "~1.0.4",
+    "bower-asset/jquery": "1.11.*"
+  },
+  "autoload" : {
+    "psr-0" : { "Phossa\\Ecs\\": "vendor/phossa/phossa-ecs" }
+  },
+  "archive" : {
+    "exclude" : [ "!vendor", "tests", "*phpunit.xml", "composer.lock" ]
+  },
+  "extra": {
+    "asset-installer-paths": {
+      "npm-asset-library": "public/vendor",
+      "bower-asset-library": "public/vendor"
+    }
+  }
 }
