@@ -15,8 +15,8 @@
 /*# declare(strict_types=1); */
 
 /*
- * bootstrap file
+ * load bootstrap file
  */
 require_once '../system/bootstrap.php';
 
-var_dump($config);
+var_dump($_PHOSSA);

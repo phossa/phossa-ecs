@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Phossa Project
  *
@@ -14,11 +15,11 @@
 /*# declare(strict_types=1); */
 
 /*
- * load all boot files in `boot/` directory
+ * set root directory
  */
-$bootFiles = glob('boot/*.php');
-asort($bootFiles);
+putenv('PHOSSA_ROOT=' . dirname(dirname(__DIR__)));
 
-foreach($bootFiles as $file) {
-    require $file;
-}
+/*
+ * set autoloading
+ */
+$_PHOSSA['loader'] = require getenv('PHOSSA_ROOT') . '/vendor/autoload.php';

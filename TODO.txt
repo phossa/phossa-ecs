@@ -1,0 +1,31 @@
+
+INSTALL
+
+1. copy env.sample to '../.env'
+
+  - replace PHOSSA_APP
+
+  - ask tmpdir, default '/var/tmp'
+
+  - ask language, default 'en_US.UTF-8'
+
+  - ask app dir, default '${PHOSSA_VENDOR}/${PHOSSA_APP}'
+
+  - ask timezone, default is 'US/Pacific'
+
+2. generate bootstrap file
+
+  - collect files in system/boot/* and generate bootstrap.php
+
+3. CREATE config files or install config package
+
+  - if not exists yet
+
+  - maybe use composer install to config/, version control !
+
+4. create or clear cache dir
+   
+
+UPDATE
+
+redo 2. 3. 4.
