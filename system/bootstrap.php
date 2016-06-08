@@ -16,9 +16,9 @@
 /*
  * load all boot files in `boot/` directory
  */
-$bootFiles = glob('boot/*.php');
-asort($bootFiles);
-
-foreach($bootFiles as $file) {
-    require $file;
+foreach(scandir(__DIR__ . '/boot') as $file) {
+    if ('.' == $file || '..' == $file) {
+        continue;
+    }
+    require __DIR__ . '/boot/' . $file;
 }

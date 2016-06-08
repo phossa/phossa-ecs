@@ -19,4 +19,4 @@
  */
 require_once '../system/bootstrap.php';
 
-var_dump($_PHOSSA);
+phpinfo();
