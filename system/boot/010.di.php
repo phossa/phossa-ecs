@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Phossa Project
  *
@@ -15,8 +14,13 @@
 /*# declare(strict_types=1); */
 
 /*
- * load bootstrap file
+ * start dependent injection container
  */
-require_once '../system/bootstrap.php';
+$container = new \Phossa\Di\Container(
+    getenv('PHOSSA_CONFIG') . '/di.php'
+);
 
-var_dump($container->get('config'));
+/*
+ * use $config as parameter resolver
+ */
+$container->setResolver($container->get('config'));
