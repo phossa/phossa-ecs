@@ -13,6 +13,9 @@
  */
 /*# declare(strict_types=1); */
 
+/*
+ * configure for DI container
+ */
 return [
     'services' => [
         // logger
@@ -27,6 +30,20 @@ return [
                 '${logger.syslog.class}',
                 ['${logger.syslog.ident}', '${logger.syslog.level}']
             ],
+        ],
+
+        // cache
+        'cache' => [
+            'class' => [
+                '${cache.class}',
+                ['@cache_filesys_driver@']
+            ]
+        ],
+        'cache_filesys_driver' => [
+            'class' => [
+                '${cache.filesys.class}',
+                ['${cache.filesys.conf}']
+            ]
         ],
     ],
 ];

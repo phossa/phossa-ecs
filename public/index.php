@@ -19,5 +19,5 @@
  */
 require_once '../system/bootstrap.php';
 
-var_dump(C('logger'));
-O('logger')->notice('this is a notice');
+var_dump(C('cache'));
+var_dump(O('cache'));
