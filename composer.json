@@ -12,8 +12,9 @@
   "require": {
     "php": ">=5.4.0",
     "fxp/composer-asset-plugin": "^1.1",
-    "phossa/phossa": "master"
+    "phossa/phossa": "dev-master"
   },
+  "minimum-stability": "dev",
   "config": {
     "bin-dir": "system/script",
     "platform": {
