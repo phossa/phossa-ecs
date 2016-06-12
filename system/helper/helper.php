@@ -20,18 +20,26 @@ use Phossa\Config\ConfigInterface;
  */
 
 /**
- * Get current configuration for $name
+ * Get/set configuration for $name
  *
  * @param  string $name
+ * @param  string|array|null $value
  * @param  string|array|null configuration
  * @access public
  */
-function C(/*# string */ $name) {
+function C(/*# string */ $name, $value = null)
+{
     global $_PHOSSA;
     if (isset($_PHOSSA['config'])) {
         /* @var $config ConfigInterface */
         $config = $_PHOSSA['config'];
-        return $config->get($name);
+
+        // get or set
+        if (null === $value) {
+            return $config->get($name);
+        } else {
+            $config->set($name, $value);
+        }
     }
     return null;
 }
@@ -43,7 +51,8 @@ function C(/*# string */ $name) {
  * @param  object|null
  * @access public
  */
-function O(/*# string */ $name) {
+function O(/*# string */ $name)
+{
     global $_PHOSSA;
     if (isset($_PHOSSA['di'])) {
         /* @var $di ContainerInterface */

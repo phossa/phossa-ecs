@@ -45,5 +45,12 @@ return [
                 ['${cache.filesys.conf}']
             ]
         ],
+
+        // global event manager
+        'event' => [
+            'class' => [
+                '${event.class}'
+            ],
+        ],
     ],
 ];
