@@ -18,5 +18,3 @@
  * load bootstrap file
  */
 require_once '../system/bootstrap.php';
-
-var_dump($container->get('config'));

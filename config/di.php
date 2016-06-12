@@ -15,15 +15,27 @@
 
 return [
     'services' => [
+        // cache for config
+        'config_cache' => [
+            'class' => [
+                // class name
+                'Phossa\\Config\\Cache\\Cache',
+                // cache directory
+                [getenv['PHOSSA_TMPDIR'] . '/cache']
+            ]
+        ],
+
         // global config object
         'config' => [
             'class' => [
                 // class name
                 'Phossa\\Config\\Config',
                 // constructor parameters
-                [getenv('PHOSSA_CONFIG'), getenv('PHOSSA_ENV')]
-            ]
+                [
+                    getenv('PHOSSA_CONFIG'), getenv('PHOSSA_ENV'),
+                    'php', '@config_cache@'
+                ]
+            ],
         ],
-
     ],
 ];
