@@ -15,26 +15,17 @@
 
 return [
     'services' => [
-        // cache for config
-        'config_cache' => [
+        // logger
+        'logger' => [
             'class' => [
-                // class name
-                'Phossa\\Config\\Cache\\Cache',
-                // cache directory
-                [getenv['PHOSSA_TMPDIR'] . '/cache']
-            ]
+                '${logger.class}',
+                ['${logger.channel}', ['@logger_syslog_handler@']],
+            ],
         ],
-
-        // global config object
-        'config' => [
+        'logger_syslog_handler' => [
             'class' => [
-                // class name
-                'Phossa\\Config\\Config',
-                // constructor parameters
-                [
-                    getenv('PHOSSA_CONFIG'), getenv('PHOSSA_ENV'),
-                    'php', '@config_cache@'
-                ]
+                '${logger.syslog.class}',
+                ['${logger.syslog.ident}', '${logger.syslog.level}']
             ],
         ],
     ],

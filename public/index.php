@@ -18,3 +18,5 @@
  * load bootstrap file
  */
 require_once '../system/bootstrap.php';
+
+var_dump(C('di'));

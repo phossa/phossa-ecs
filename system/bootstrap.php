@@ -22,3 +22,13 @@ foreach(scandir(__DIR__ . '/boot') as $file) {
     }
     require __DIR__ . '/boot/' . $file;
 }
+
+/*
+ * load helper functions
+ */
+foreach(scandir(__DIR__ . '/helper') as $file) {
+    if ('.' == $file || '..' == $file) {
+        continue;
+    }
+    require __DIR__ . '/helper/' . $file;
+}

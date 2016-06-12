@@ -13,14 +13,11 @@
  */
 /*# declare(strict_types=1); */
 
+use Phossa\Di\Container;
+
 /*
  * start dependent injection container
  */
-$container = new \Phossa\Di\Container(
-    getenv('PHOSSA_CONFIG') . '/di.php'
-);
-
-/*
- * use $config as parameter resolver
- */
-$container->setResolver($container->get('config'));
+$_PHOSSA['di'] = (new Container(
+    $_PHOSSA['config']->get('di')
+))->setResolver($_PHOSSA['config']);
