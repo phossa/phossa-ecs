@@ -19,4 +19,4 @@
  */
 require_once '../system/bootstrap.php';
 
-var_dump(C('di'));
+var_dump(O('config'));

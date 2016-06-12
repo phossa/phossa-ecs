@@ -18,6 +18,6 @@ use Phossa\Di\Container;
 /*
  * start dependent injection container
  */
-$_PHOSSA['di'] = (new Container(
-    $_PHOSSA['config']->get('di')
-))->setResolver($_PHOSSA['config']);
+$_PHOSSA['di'] = (new Container($_PHOSSA['config']->get('di')))
+    ->setResolver($_PHOSSA['config'])
+    ->add('config', $_PHOSSA['config']);
