@@ -20,3 +20,4 @@
 require_once '../system/bootstrap.php';
 
 var_dump(O('config'));
+var_dump(C('logger'));
