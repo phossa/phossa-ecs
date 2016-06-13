@@ -19,4 +19,5 @@
  */
 require_once '../system/bootstrap.php';
 
-var_dump(O('event'));
+var_dump(retrieve('event'));
+var_dump(retrieve('dispatcher'));

@@ -48,8 +48,14 @@ return [
 
         // global event manager
         'event' => [
-            'class' => [
-                '${event.class}'
+            'class' => '${event.class}'
+        ],
+
+        // route dispatcher
+        'dispatcher' => [
+            'class'   => '${route.class}',
+            'methods' => [
+                ['loadRoute', ['${route.routes}']],
             ],
         ],
     ],

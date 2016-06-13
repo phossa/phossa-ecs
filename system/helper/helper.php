@@ -27,7 +27,7 @@ use Phossa\Config\ConfigInterface;
  * @param  string|array|null configuration
  * @access public
  */
-function C(/*# string */ $name, $value = null)
+function config(/*# string */ $name, $value = null)
 {
     global $_PHOSSA;
     if (isset($_PHOSSA['config'])) {
@@ -51,7 +51,7 @@ function C(/*# string */ $name, $value = null)
  * @param  object|null
  * @access public
  */
-function O(/*# string */ $name)
+function retrieve(/*# string */ $name)
 {
     global $_PHOSSA;
     if (isset($_PHOSSA['di'])) {
