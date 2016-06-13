@@ -12,7 +12,7 @@
  */
 /*# declare(strict_types=1); */
 
-use Phossa\Di\ContainerInterface;
+use Phossa\Di\StaticContainer;
 use Phossa\Config\ConfigInterface;
 
 /*
@@ -29,19 +29,15 @@ use Phossa\Config\ConfigInterface;
  */
 function config(/*# string */ $name, $value = null)
 {
-    global $_PHOSSA;
-    if (isset($_PHOSSA['config'])) {
-        /* @var $config ConfigInterface */
-        $config = $_PHOSSA['config'];
+    /* @var $config ConfigInterface */
+    $config = StaticContainer::get('config');
 
-        // get or set
-        if (null === $value) {
-            return $config->get($name);
-        } else {
-            $config->set($name, $value);
-        }
+    // get or set
+    if (null === $value) {
+        return $config->get($name);
+    } else {
+        $config->set($name, $value);
     }
-    return null;
 }
 
 /**
@@ -53,13 +49,8 @@ function config(/*# string */ $name, $value = null)
  */
 function retrieve(/*# string */ $name)
 {
-    global $_PHOSSA;
-    if (isset($_PHOSSA['di'])) {
-        /* @var $di ContainerInterface */
-        $di = $_PHOSSA['di'];
-        if ($di->has($name)) {
-            return $di->get($name);
-        }
+    if (StaticContainer::has($name)) {
+        return StaticContainer::get($name);
     }
     return null;
 }

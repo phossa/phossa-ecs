@@ -13,13 +13,15 @@
  */
 /*# declare(strict_types=1); */
 
+use Phossa\Di\Container;
 use Phossa\Config\Config;
 use Phossa\Config\Cache\Cache;
+use Phossa\Di\StaticContainer;
 
 /*
  * start configure
  */
-$_PHOSSA['config'] = new Config(
+$config = new Config(
     // config directory
     getenv('PHOSSA_CONFIG'),
     // current env
@@ -28,4 +30,13 @@ $_PHOSSA['config'] = new Config(
     'php',
     // config cache
     new Cache(getenv('PHOSSA_CACHE'))
+);
+
+/*
+ * start dependent injection container
+ */
+StaticContainer::setContainer(
+    (new Container($config->get('di')))
+        ->setResolver($config)
+        ->add('config', $config)
 );
